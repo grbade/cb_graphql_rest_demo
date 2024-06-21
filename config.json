@@ -1,0 +1,10 @@
+{
+  "couchbase": {
+    "host": "couchbase://127.0.0.1",
+    "username": "Administrator",
+    "password": "password",
+    "bucket": "travel-sample",
+    "scope": "inventory",
+    "collection": "airline"
+  }
+}
