@@ -11,12 +11,28 @@ This demo application showcases how to manage an airline database using both Gra
 Run the following command to create and start a Couchbase container:
 
 ```sh
-docker run -d --name cb_graphsql_rest_demo -p 8091-8096:8091-8096 -p 11210-11211:11210-11211 -p 5000:5000 couchbase:7.6.1
+docker run -d --name cb_graphql_rest_demo -p 8091-8096:8091-8096 -p 11210-11211:11210-11211 -p 5000:5000 couchbase:7.6.1
 ```
 
 ### 2. Checkout Repository
 
-Clone the repository inside the container
+Connect to the container:
+
+```
+docker exec -it cb_graphql_rest_demo /bin/bash
+```
+
+Go to:
+
+```
+cd /opt/
+```
+
+Clone the repository inside the container:
+
+```
+git clone https://github.com/grbade/cb_graphql_rest_demo.git
+```
 
 ### 3. Install Requirements
 
