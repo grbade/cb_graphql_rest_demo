@@ -70,7 +70,7 @@ query {
 
 ```graphql
 mutation {
-  createAirline(id: "1234", type: "airline", name: "Sample Airline", iata: "SA", icao: "SAL", callsign: "SAMPLE", country: "USA") {
+  createAirline(id: 1234, type: "airline", name: "Sample Airline", iata: "SA", icao: "SAL", callsign: "SAMPLE", country: "USA") {
     success
     message
     airline {
