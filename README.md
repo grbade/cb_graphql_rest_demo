@@ -90,7 +90,7 @@ mutation {
 
 ```graphql
 query {
-  airline(id: "1234") {
+  airline(id: 1234) {
     id
     type
     name
@@ -122,7 +122,7 @@ query {
 
 ```graphql
 mutation {
-  updateAirline(id: "1234", name: "Updated Airline") {
+  updateAirline(id: 1234, name: "Updated Airline") {
     success
     message
     airline {
@@ -142,7 +142,7 @@ mutation {
 
 ```graphql
 mutation {
-  deleteAirline(id: "1234") {
+  deleteAirline(id: 1234) {
     success
     message
   }
@@ -163,7 +163,7 @@ curl -X GET http://127.0.0.1:5000/airlines
 
 ```sh
 curl -X POST http://127.0.0.1:5000/airline -H "Content-Type: application/json" -d '{
-  "id": "1234",
+  "id": 1234,
   "type": "airline",
   "name": "Sample Airline",
   "iata": "SA",
