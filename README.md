@@ -102,6 +102,22 @@ query {
 }
 ```
 
+**Get Airline by any field**
+
+```graphql
+query {
+  airline(name: "Sample Airline", iata: "SA") {
+    id
+    type
+    name
+    iata
+    icao
+    callsign
+    country
+  }
+}
+```
+
 **Update an Airline**
 
 ```graphql
@@ -161,6 +177,12 @@ curl -X POST http://127.0.0.1:5000/airline -H "Content-Type: application/json" -
 
 ```sh
 curl -X GET http://127.0.0.1:5000/airline?id=airline_1234
+```
+
+**Get Airline by any field**
+
+```sh
+curl -G http://localhost:5000/airline --data-urlencode "iata=SA" --data-urlencode "name=Sample Airline"
 ```
 
 **Update an Airline**
