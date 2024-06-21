@@ -1,4 +1,3 @@
-```markdown
 # Couchbase Graphql and REST DEMO
 
 ## Description
@@ -12,7 +11,7 @@ This demo application showcases how to manage an airline database using both Gra
 Run the following command to create and start a Couchbase container:
 
 ```sh
-docker run -d --name cb_graphsql_rest_demo -p 8091-8096:8091-8096 -p 11210-11211:11210-11211 -p 8501:8501 -p 5000:5000 couchbase:7.6.1
+docker run -d --name cb_graphsql_rest_demo -p 8091-8096:8091-8096 -p 11210-11211:11210-11211 -p 5000:5000 -p 5000:5000 couchbase:7.6.1
 ```
 
 ### 2. Checkout Repository
@@ -139,19 +138,19 @@ mutation {
 **Get All Airlines**
 
 ```sh
-curl -X GET http://127.0.0.1:8501/airlines
+curl -X GET http://127.0.0.1:5000/airlines
 ```
 
 **Get Airline by ID**
 
 ```sh
-curl -X GET http://127.0.0.1:8501/airline?id=airline_1234
+curl -X GET http://127.0.0.1:5000/airline?id=airline_1234
 ```
 
 **Create an Airline**
 
 ```sh
-curl -X POST http://127.0.0.1:8501/airline -H "Content-Type: application/json" -d '{
+curl -X POST http://127.0.0.1:5000/airline -H "Content-Type: application/json" -d '{
   "id": "airline_1234",
   "type": "airline",
   "name": "Sample Airline",
@@ -165,7 +164,7 @@ curl -X POST http://127.0.0.1:8501/airline -H "Content-Type: application/json" -
 **Update an Airline**
 
 ```sh
-curl -X PUT http://127.0.0.1:8501/airline/airline_1234 -H "Content-Type: application/json" -d '{
+curl -X PUT http://127.0.0.1:5000/airline/airline_1234 -H "Content-Type: application/json" -d '{
   "name": "Updated Airline"
 }'
 ```
@@ -173,7 +172,7 @@ curl -X PUT http://127.0.0.1:8501/airline/airline_1234 -H "Content-Type: applica
 **Delete an Airline**
 
 ```sh
-curl -X DELETE http://127.0.0.1:8501/airline/airline_1234
+curl -X DELETE http://127.0.0.1:5000/airline/airline_1234
 ```
 
 ## Conclusion
@@ -181,4 +180,3 @@ curl -X DELETE http://127.0.0.1:8501/airline/airline_1234
 This demo application provides a comprehensive example of how to implement and use GraphQL and REST interfaces with a Couchbase database. It demonstrates the flexibility of GraphQL for querying specific data and the simplicity of REST for traditional API interactions. By following the steps outlined above, you can easily set up, run, and test the application.
 ```
 
-You can save this content to a file named `README.md` in your repository. This file will serve as a guide for anyone who checks out the repository, helping them to understand the purpose of the project and how to set it up and use it.
