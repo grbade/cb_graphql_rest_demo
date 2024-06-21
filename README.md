@@ -26,12 +26,14 @@ Install the required Python packages using pip:
 pip install -r requirements.txt
 ```
 
+Install the "travel-sample" bucket https://docs.couchbase.com/server/current/manage/manage-settings/install-sample-buckets.html
+
 ### 4. Run Flask App
 
 Start the Flask application:
 
 ```sh
-python app.py
+python3 app.py
 ```
 
 ### 5. Go to GraphQL Playground
