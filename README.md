@@ -70,7 +70,7 @@ query {
 
 ```graphql
 mutation {
-  createAirline(id: "airline_1234", type: "airline", name: "Sample Airline", iata: "SA", icao: "SAL", callsign: "SAMPLE", country: "USA") {
+  createAirline(id: 1234, type: "airline", name: "Sample Airline", iata: "SA", icao: "SAL", callsign: "SAMPLE", country: "USA") {
     success
     message
     airline {
@@ -90,7 +90,7 @@ mutation {
 
 ```graphql
 query {
-  airline(id: "airline_1234") {
+  airline(id: 1234) {
     id
     type
     name
@@ -122,7 +122,7 @@ query {
 
 ```graphql
 mutation {
-  updateAirline(id: "airline_1234", name: "Updated Airline") {
+  updateAirline(id: 1234, name: "Updated Airline") {
     success
     message
     airline {
@@ -142,7 +142,7 @@ mutation {
 
 ```graphql
 mutation {
-  deleteAirline(id: "airline_1234") {
+  deleteAirline(id: 1234) {
     success
     message
   }
@@ -163,7 +163,7 @@ curl -X GET http://127.0.0.1:5000/airlines
 
 ```sh
 curl -X POST http://127.0.0.1:5000/airline -H "Content-Type: application/json" -d '{
-  "id": "airline_1234",
+  "id": 1234,
   "type": "airline",
   "name": "Sample Airline",
   "iata": "SA",
@@ -176,19 +176,19 @@ curl -X POST http://127.0.0.1:5000/airline -H "Content-Type: application/json" -
 **Get Airline by ID**
 
 ```sh
-curl -X GET http://127.0.0.1:5000/airline?id=airline_1234
+curl -X GET http://127.0.0.1:5000/airline?id=1234
 ```
 
 **Get Airline by any field**
 
 ```sh
-curl -G http://localhost:5000/airline --data-urlencode "iata=SA" --data-urlencode "name=Sample Airline"
+curl -G 'http://localhost:5000/airline?iata=SA&name=Sample+Airline'
 ```
 
 **Update an Airline**
 
 ```sh
-curl -X PUT http://127.0.0.1:5000/airline/airline_1234 -H "Content-Type: application/json" -d '{
+curl -X PUT http://127.0.0.1:5000/airline/1234 -H "Content-Type: application/json" -d '{
   "name": "Updated Airline"
 }'
 ```
@@ -196,7 +196,7 @@ curl -X PUT http://127.0.0.1:5000/airline/airline_1234 -H "Content-Type: applica
 **Delete an Airline**
 
 ```sh
-curl -X DELETE http://127.0.0.1:5000/airline/airline_1234
+curl -X DELETE http://127.0.0.1:5000/airline/1234
 ```
 
 ## Conclusion
