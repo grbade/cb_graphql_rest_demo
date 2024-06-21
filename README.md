@@ -182,7 +182,7 @@ curl -X GET http://127.0.0.1:5000/airline?id=1234
 **Get Airline by any field**
 
 ```sh
-curl -G http://localhost:5000/airline --data-urlencode "iata=SA" --data-urlencode "name=Sample Airline"
+curl -G 'http://localhost:5000/airline?iata=SA&name=Sample+Airline'
 ```
 
 **Update an Airline**
