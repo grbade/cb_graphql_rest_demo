@@ -26,6 +26,19 @@ Install the required Python packages using pip:
 python3 -m pip install -r requirements.txt
 ```
 
+Open your web browser and navigate to:
+
+```
+http://127.0.0.1:8091/
+```
+
+Create a couchbase cluster with:
+
+```
+username=Administrator
+password=password
+```
+
 Install the "travel-sample" bucket https://docs.couchbase.com/server/current/manage/manage-settings/install-sample-buckets.html
 
 ### 4. Run Flask App
