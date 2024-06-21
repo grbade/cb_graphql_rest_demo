@@ -1,4 +1,4 @@
-# Couchbase Graphql and REST DEMO
+# Couchbase GraphQL and REST Demo
 
 ## Description
 
