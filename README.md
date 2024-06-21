@@ -66,22 +66,6 @@ query {
 }
 ```
 
-**Get Airline by ID**
-
-```graphql
-query {
-  airline(id: "airline_1234") {
-    id
-    type
-    name
-    iata
-    icao
-    callsign
-    country
-  }
-}
-```
-
 **Create an Airline**
 
 ```graphql
@@ -98,6 +82,22 @@ mutation {
       callsign
       country
     }
+  }
+}
+```
+
+**Get Airline by ID**
+
+```graphql
+query {
+  airline(id: "airline_1234") {
+    id
+    type
+    name
+    iata
+    icao
+    callsign
+    country
   }
 }
 ```
@@ -143,12 +143,6 @@ mutation {
 curl -X GET http://127.0.0.1:5000/airlines
 ```
 
-**Get Airline by ID**
-
-```sh
-curl -X GET http://127.0.0.1:5000/airline?id=airline_1234
-```
-
 **Create an Airline**
 
 ```sh
@@ -161,6 +155,12 @@ curl -X POST http://127.0.0.1:5000/airline -H "Content-Type: application/json" -
   "callsign": "SAMPLE",
   "country": "USA"
 }'
+```
+
+**Get Airline by ID**
+
+```sh
+curl -X GET http://127.0.0.1:5000/airline?id=airline_1234
 ```
 
 **Update an Airline**
@@ -180,5 +180,4 @@ curl -X DELETE http://127.0.0.1:5000/airline/airline_1234
 ## Conclusion
 
 This demo application provides a comprehensive example of how to implement and use GraphQL and REST interfaces with a Couchbase database. It demonstrates the flexibility of GraphQL for querying specific data and the simplicity of REST for traditional API interactions. By following the steps outlined above, you can easily set up, run, and test the application.
-```
 
