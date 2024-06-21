@@ -74,7 +74,13 @@ def get_airline():
     Route to get a specific airline by its fields.
     """
     params = request.args
-    query_str = "SELECT * FROM `travel-sample`.inventory.airline WHERE " + " AND ".join([f"{k} = '{v}'" for k, v in params.items()])
+    conditions = []
+    for k, v in params.items():
+        if k == "id":
+            conditions.append(f"{k} = {v}")
+        else:
+            conditions.append(f"{k} = '{v}'")
+    query_str = "SELECT * FROM `travel-sample`.inventory.airline WHERE " + " AND ".join(conditions)
     try:
         row_iter = cluster.query(query_str)
         airlines = [row['airline'] for row in row_iter]
@@ -88,11 +94,11 @@ def create_airline():
     Route to create a new airline.
     """
     data = request.json
-    airline_id = data.get("id")
+    airline_id = "airline_" + str(data.get("id"))
     if not airline_id:
         return jsonify({"error": "ID is required"}), 400
     try:
-        collection.upsert(str(airline_id), data)
+        collection.insert(str(airline_id), data)
         return jsonify({"success": True, "message": "Airline created successfully", "airline": data}), 201
     except CouchbaseException as e:
         return jsonify({"error": str(e)}), 500
@@ -104,8 +110,9 @@ def update_airline(id):
     """
     data = request.json
     try:
-        collection.mutate_in(id, [SD.upsert(k, v) for k, v in data.items() if v is not None])
-        updated_airline = collection.get(id).content_as[dict]
+        airline_id = "airline_" + id
+        collection.mutate_in(airline_id, [SD.upsert(k, v) for k, v in data.items() if v is not None])
+        updated_airline = collection.get(airline_id).content_as[dict]
         return jsonify({"success": True, "message": "Airline updated successfully", "airline": updated_airline}), 200
     except CouchbaseException as e:
         return jsonify({"error": str(e)}), 500
@@ -116,10 +123,10 @@ def delete_airline(id):
     Route to delete an airline by its ID.
     """
     try:
-        collection.remove(id)
+        collection.remove("airline_" + id)
         return jsonify({"success": True, "message": "Airline deleted successfully"}), 200
     except CouchbaseException as e:
         return jsonify({"error": str(e)}), 500
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=5000, debug=True)
+    app.run(host="0.0.0.0", port=8501 , debug=True)

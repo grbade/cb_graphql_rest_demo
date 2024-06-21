@@ -79,7 +79,7 @@ def resolve_create_airline(_, info, id, type, name, iata, icao, callsign, countr
         "country": country
     }
     try:
-        collection.upsert("airline_" + str(id), airline)
+        collection.insert("airline_" + str(id), airline)
         return {
             "success": True,
             "message": "Airline created successfully",

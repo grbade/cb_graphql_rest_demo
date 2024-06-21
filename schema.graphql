@@ -1,16 +1,16 @@
 type Query {
-    airline(id: ID, type: String, name: String, iata: String, icao: String, callsign: String, country: String): [Airline]
+    airline(id: Int, type: String, name: String, iata: String, icao: String, callsign: String, country: String): [Airline]
     airlines: [Airline]
 }
 
 type Mutation {
-    createAirline(id: ID!, type: String, name: String, iata: String, icao: String, callsign: String, country: String): AirlineResponse!
-    updateAirline(id: ID!, type: String, name: String, iata: String, icao: String, callsign: String, country: String): AirlineResponse!
-    deleteAirline(id: ID!): DeleteResponse!
+    createAirline(id: Int!, type: String, name: String, iata: String, icao: String, callsign: String, country: String): AirlineResponse!
+    updateAirline(id: Int!, type: String, name: String, iata: String, icao: String, callsign: String, country: String): AirlineResponse!
+    deleteAirline(id: Int!): DeleteResponse!
 }
 
 type Airline {
-    id: ID!
+    id: Int!
     type: String
     name: String
     iata: String
