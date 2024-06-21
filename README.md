@@ -23,7 +23,7 @@ Clone the repository inside the container
 Install the required Python packages using pip:
 
 ```sh
-pip install -r requirements.txt
+python3 -m pip install -r requirements.txt
 ```
 
 Install the "travel-sample" bucket https://docs.couchbase.com/server/current/manage/manage-settings/install-sample-buckets.html
@@ -41,7 +41,7 @@ python3 app.py
 Open your web browser and navigate to:
 
 ```
-http://localhost:5000/graphql
+http://127.0.0.1:5000/graphql
 ```
 
 This will take you to the GraphQL Playground interface.
