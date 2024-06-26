@@ -228,11 +228,6 @@ curl -X PUT http://127.0.0.1:5000/airline/1234 -H "Content-Type: application/jso
 curl -X DELETE http://127.0.0.1:5000/airline/1234
 ```
 
-## Conclusion
-
-This demo application provides a comprehensive example of how to implement and use GraphQL and REST interfaces with a Couchbase database. It demonstrates the flexibility of GraphQL for querying specific data and the simplicity of REST for traditional API interactions. By following the steps outlined above, you can easily set up, run, and test the application.
-
-
 ### 8. SQL++ Queries
 
 #### Sample SQL++ Queries
@@ -271,5 +266,9 @@ This demo application provides a comprehensive example of how to implement and u
   ```sql
   DELETE FROM `travel-sample`.inventory.airline WHERE META().id = "airline_12345";
   ```
+
+## Conclusion
+
+This demo application provides a comprehensive example of how to implement and use GraphQL and REST interfaces with a Couchbase database. It demonstrates the flexibility of GraphQL for querying specific data and the simplicity of REST for traditional API interactions. By following the steps outlined above, you can easily set up, run, and test the application.
 
 
