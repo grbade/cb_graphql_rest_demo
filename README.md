@@ -232,3 +232,44 @@ curl -X DELETE http://127.0.0.1:5000/airline/1234
 
 This demo application provides a comprehensive example of how to implement and use GraphQL and REST interfaces with a Couchbase database. It demonstrates the flexibility of GraphQL for querying specific data and the simplicity of REST for traditional API interactions. By following the steps outlined above, you can easily set up, run, and test the application.
 
+
+### 8. SQL++ Queries
+
+#### Sample SQL++ Queries
+
+- **Fetch All Airlines:**
+  ```sql
+  SELECT * FROM `travel-sample`.inventory.airline WHERE type = 'airline';
+  ```
+
+- **Fetch Airline by Specific Fields (Example with `iata` and `name`):**
+  ```sql
+  SELECT * FROM `travel-sample`.inventory.airline WHERE iata = 'SA' AND name = 'Sample Airline';
+  ```
+
+- **Create Airline:**
+  ```sql
+  INSERT INTO `travel-sample`.inventory.airline (KEY, VALUE) VALUES ("airline_12345", {
+    "id": "12345",
+    "type": "airline",
+    "name": "Sample Airline",
+    "iata": "SA",
+    "icao": "SAM",
+    "callsign": "SAMPLE",
+    "country": "USA"
+  });
+  ```
+
+- **Update Airline by ID:**
+  ```sql
+  UPDATE `travel-sample`.inventory.airline SET 
+    name = "Updated Airline", 
+  WHERE META().id = "airline_12345";
+  ```
+
+- **Delete Airline by ID:**
+  ```sql
+  DELETE FROM `travel-sample`.inventory.airline WHERE META().id = "airline_12345";
+  ```
+
+
