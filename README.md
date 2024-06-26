@@ -259,7 +259,7 @@ curl -X DELETE http://127.0.0.1:5000/airline/1234
   SELECT * FROM `travel-sample`.inventory.airline WHERE iata = 'SA' AND name = 'Sample Airline';
   ```
 
-**Update Airline:**
+**Update an Airline:**
   ```sql
   UPDATE `travel-sample`.inventory.airline SET 
     name = "Updated Airline", 
