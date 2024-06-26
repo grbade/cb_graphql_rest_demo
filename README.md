@@ -232,17 +232,12 @@ curl -X DELETE http://127.0.0.1:5000/airline/1234
 
 #### Sample SQL++ Queries
 
-- **Fetch All Airlines:**
+**Get All Airlines:**
   ```sql
   SELECT * FROM `travel-sample`.inventory.airline WHERE type = 'airline';
   ```
 
-- **Fetch Airline by Specific Fields (Example with `iata` and `name`):**
-  ```sql
-  SELECT * FROM `travel-sample`.inventory.airline WHERE iata = 'SA' AND name = 'Sample Airline';
-  ```
-
-- **Create Airline:**
+**Create Airline:**
   ```sql
   INSERT INTO `travel-sample`.inventory.airline (KEY, VALUE) VALUES ("airline_12345", {
     "id": "12345",
@@ -255,14 +250,23 @@ curl -X DELETE http://127.0.0.1:5000/airline/1234
   });
   ```
 
-- **Update Airline by ID:**
+**Get Airline by ID**
+  ```sql
+  SELECT * FROM `travel-sample`.inventory.airline WHERE META().id = "airline_12345";
+  ```
+**Get Airline by any field:**
+  ```sql
+  SELECT * FROM `travel-sample`.inventory.airline WHERE iata = 'SA' AND name = 'Sample Airline';
+  ```
+
+**Update Airline:**
   ```sql
   UPDATE `travel-sample`.inventory.airline SET 
     name = "Updated Airline", 
   WHERE META().id = "airline_12345";
   ```
 
-- **Delete Airline by ID:**
+**Delete an Airline:**
   ```sql
   DELETE FROM `travel-sample`.inventory.airline WHERE META().id = "airline_12345";
   ```
