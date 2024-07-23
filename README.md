@@ -1,4 +1,4 @@
-# Couchbase GraphQL and REST Demo
+# Couchbase GraphQL, REST and SQL++ Demo
 
 ## Description
 
@@ -11,7 +11,7 @@ This demo application showcases how to manage an airline database using both Gra
 Run the following command to create and start a Couchbase container:
 
 ```sh
-docker run -d --name cb_graphql_rest_demo -p 8091-8096:8091-8096 -p 11210-11211:11210-11211 -p 5000:5000 couchbase:7.6.1
+docker run -d --name cb_graphql_rest_demo -p 8091-8096:8091-8096 -p 11210-11211:11210-11211 -p 8501:8501 couchbase:7.6.1
 ```
 
 ### 2. Checkout Repository
@@ -28,6 +28,13 @@ Go to:
 cd /opt/
 ```
 
+Install packages:
+
+```
+apt-get update
+apt-get install git python3 python3-pip vim
+```
+
 Clone the repository inside the container:
 
 ```
@@ -35,6 +42,12 @@ git clone https://github.com/grbade/cb_graphql_rest_demo.git
 ```
 
 ### 3. Install Requirements
+
+Go to:
+
+```
+cd /opt/cb_graphql_rest_demo/
+```
 
 Install the required Python packages using pip:
 
@@ -57,6 +70,9 @@ password=password
 
 Install the "travel-sample" bucket https://docs.couchbase.com/server/current/manage/manage-settings/install-sample-buckets.html
 
+> [!IMPORTANT]
+> Before running the queries make sure that the bucket and indexes are added completely
+
 ### 4. Run Flask App
 
 Start the Flask application:
@@ -70,7 +86,7 @@ python3 app.py
 Open your web browser and navigate to:
 
 ```
-http://127.0.0.1:5000/graphql
+http://127.0.0.1:8501/graphql
 ```
 
 This will take you to the GraphQL Playground interface.
@@ -185,13 +201,13 @@ mutation {
 **Get All Airlines**
 
 ```sh
-curl -X GET http://127.0.0.1:5000/airlines
+curl -X GET http://127.0.0.1:8501/airlines
 ```
 
 **Create an Airline**
 
 ```sh
-curl -X POST http://127.0.0.1:5000/airline -H "Content-Type: application/json" -d '{
+curl -X POST http://127.0.0.1:8501/airline -H "Content-Type: application/json" -d '{
   "id": 1234,
   "type": "airline",
   "name": "Sample Airline",
@@ -205,19 +221,19 @@ curl -X POST http://127.0.0.1:5000/airline -H "Content-Type: application/json" -
 **Get Airline by ID**
 
 ```sh
-curl -X GET http://127.0.0.1:5000/airline?id=1234
+curl -X GET http://127.0.0.1:8501/airline?id=1234
 ```
 
 **Get Airline by any field**
 
 ```sh
-curl -G 'http://localhost:5000/airline?iata=SA&name=Sample+Airline'
+curl -G 'http://localhost:8501/airline?iata=SA&name=Sample+Airline'
 ```
 
 **Update an Airline**
 
 ```sh
-curl -X PUT http://127.0.0.1:5000/airline/1234 -H "Content-Type: application/json" -d '{
+curl -X PUT http://127.0.0.1:8501/airline/1234 -H "Content-Type: application/json" -d '{
   "name": "Updated Airline"
 }'
 ```
@@ -225,7 +241,7 @@ curl -X PUT http://127.0.0.1:5000/airline/1234 -H "Content-Type: application/jso
 **Delete an Airline**
 
 ```sh
-curl -X DELETE http://127.0.0.1:5000/airline/1234
+curl -X DELETE http://127.0.0.1:8501/airline/1234
 ```
 
 ### 8. SQL++ Queries
