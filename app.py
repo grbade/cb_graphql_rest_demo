@@ -94,9 +94,9 @@ def create_airline():
     Route to create a new airline.
     """
     data = request.json
-    airline_id = "airline_" + str(data.get("id"))
-    if not airline_id:
+    if not data.get("id"):
         return jsonify({"error": "ID is required"}), 400
+    airline_id = "airline_" + str(data.get("id"))
     try:
         collection.insert(str(airline_id), data)
         return jsonify({"success": True, "message": "Airline created successfully", "airline": data}), 201

@@ -29,7 +29,10 @@ def build_query_string(args):
     conditions = []
     for key, value in args.items():
         if value is not None:
-            conditions.append(f"`{key}` = '{value}'")
+            if key == "id":
+                conditions.append(f"`{key}` = {value}")
+            else:
+                conditions.append(f"`{key}` = '{value}'")
     if conditions:
         query_str += " " + " AND ".join(conditions)
     else:
