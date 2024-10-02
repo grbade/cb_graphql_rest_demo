@@ -278,7 +278,7 @@ curl -X DELETE http://127.0.0.1:8501/airline/1234
 **Update an Airline:**
   ```sql
   UPDATE `travel-sample`.inventory.airline SET 
-    name = "Updated Airline", 
+    name = "Updated Airline" 
   WHERE META().id = "airline_12345";
   ```
 
