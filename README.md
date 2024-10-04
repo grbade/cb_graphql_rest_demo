@@ -91,7 +91,7 @@ http://127.0.0.1:8501/graphql
 
 This will take you to the GraphQL Playground interface.
 
-### 6. Test the CRUD Queries
+### 6. Test the GraphQL Queries
 
 #### Sample GraphQL Queries
 
