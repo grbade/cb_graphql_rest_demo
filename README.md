@@ -255,8 +255,8 @@ curl -X DELETE http://127.0.0.1:8501/airline/1234
 
 **Create Airline:**
   ```sql
-  INSERT INTO `travel-sample`.inventory.airline (KEY, VALUE) VALUES ("airline_12345", {
-    "id": "12345",
+  INSERT INTO `travel-sample`.inventory.airline (KEY, VALUE) VALUES ("airline_1234", {
+    "id": "1234",
     "type": "airline",
     "name": "Sample Airline",
     "iata": "SA",
@@ -268,7 +268,7 @@ curl -X DELETE http://127.0.0.1:8501/airline/1234
 
 **Get Airline by ID**
   ```sql
-  SELECT * FROM `travel-sample`.inventory.airline WHERE META().id = "airline_12345";
+  SELECT * FROM `travel-sample`.inventory.airline WHERE META().id = "airline_1234";
   ```
 **Get Airline by any field:**
   ```sql
@@ -279,12 +279,12 @@ curl -X DELETE http://127.0.0.1:8501/airline/1234
   ```sql
   UPDATE `travel-sample`.inventory.airline SET 
     name = "Updated Airline" 
-  WHERE META().id = "airline_12345";
+  WHERE META().id = "airline_1234";
   ```
 
 **Delete an Airline:**
   ```sql
-  DELETE FROM `travel-sample`.inventory.airline WHERE META().id = "airline_12345";
+  DELETE FROM `travel-sample`.inventory.airline WHERE META().id = "airline_1234";
   ```
 
 ## Conclusion
