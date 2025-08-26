@@ -221,7 +221,7 @@ curl -X POST http://127.0.0.1:8501/airline -H "Content-Type: application/json" -
 **Get Airline by ID**
 
 ```sh
-curl -X GET http://127.0.0.1:8501/airline?id=1234
+curl -G 'http://127.0.0.1:8501/airline?id=1234'
 ```
 
 **Get Airline by any field**
